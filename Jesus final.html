@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I’m Sorry 💔</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      text-align: center;
+      padding: 60px;
+      color: #333;
+    }
+    .box {
+      background: white;
+      border-radius: 12px;
+      padding: 40px 30px;
+      margin: auto;
+      max-width: 450px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    }
+    .btn-large {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 18px 32px;
+      background-color: #ff5fa2;
+      color: white;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+    .btn-small {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 10px 18px;
+      background-color: #ddd;
+      color: #444;
+      font-size: 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="box" id="content">
+  <h2>I am sorryy 💔</h2>
+  <p>Will you trust me and give me a second chance?</p>
+  <button class="btn-large" onclick="sendWebhook('Yes'); showYes()">YES 💖</button>
+  <button class="btn-small" onclick="showNo()">no</button>
+</div>
+
+<script>
+  function sendWebhook(message) {
+    fetch("https://webhook.site/44385975-182d-4e88-b731-566b2785cac2", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ answer: message })
+    });
+  }
+
+  function showYes() {
+    document.getElementById("content").innerHTML = `
+      <h2>I love you kuttuuuuu 💖</h2>
+      <p>I promise I’ll treat you better in a different way.</p>
+    `;
+  }
+
+  function showNo() {
+    document.getElementById("content").innerHTML = `
+      <h2>please kuttyyyy babes 🥺</h2>
+      <button class="btn-small" onclick="stillNo()">Still No</button>
+      <button class="btn-large" onclick="sendWebhook('We’ll see'); weWillSee()">We'll see</button>
+    `;
+  }
+
+  function weWillSee() {
+    document.getElementById("content").innerHTML = `
+      <h2>I love you kuttyyy Thangamey 💘</h2>
+      <p>Call me later if you're impressed 😏</p>
+    `;
+  }
+
+  function stillNo() {
+    document.getElementById("content").innerHTML = `
+      <h2>please Thangamey 🥹</h2>
+      <button class="btn-small" onclick="sendWebhook('I hate you'); iHateYou()">I hate you</button>
+      <button class="btn-large" onclick="sendWebhook('You\'re annoying'); youreAnnoying()">You're annoying</button>
+    `;
+  }
+
+  function iHateYou() {
+    document.getElementById("content").innerHTML = `
+      <h2>fine I’ll wait for you bestieee 😢</h2>
+    `;
+  }
+
+  function youreAnnoying() {
+    document.getElementById("content").innerHTML = `
+      <h2>okay Melwin Anna 🙄</h2>
+      <p>I still love you 😌</p>
+      <button class="btn-large" onclick="sendWebhook('I am impressed'); finalMessage('I am impressed 💖')">I am impressed</button>
+      <button class="btn-small" onclick="sendWebhook('Not working'); finalMessage('Not working 😒')">Not working</button>
+    `;
+  }
+
+  function finalMessage(text) {
+    document.getElementById("content").innerHTML = '<h2>' + text + '</h2>';
+  }
+</script>
+
+</body>
+</html>
